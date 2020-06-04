@@ -1,0 +1,36 @@
+<section class="dashbord_block ">
+    <article class="container">
+      <h1>All students detailsl</h1>
+        {{#each allStudents}}
+        <div>
+            {{#if this.student_photo}}
+                    <p><img src="{{trimString student_photo.0.path}}" /></p>
+                    {{else}}
+                    <p>
+                        <img
+                            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
+                    </p>
+
+                    {{/if}}
+                    <main class="card-body">
+                   <h2>{{student_name}}</h2>
+                    <p>{{student_dob}}</p>
+                    <p>{{student_location}}</p>
+                    <p>{{student_email}}</p>
+                    <p>{{student_education}}</p>
+                    <p>{{student_gender}}</p>
+                    <p>
+                        {{#each student_skills}}
+                        <span class="badge badge-success">{{this}}</span>
+                        {{/each}}
+                    </p>
+                    <p>{{student_percentage}}</p>
+                    <p>{{student_phone}}</p>
+                    <p><a href="/student/student_details/{{_id}}" class="btn btn-primary btn-sm">Details</a></p>
+                    </main>
+        </div>
+                   {{else}}
+                   <h1 class="text-uppercase" style="color: red;">No students details in dashboard</h1>
+                  {{/each}}
+    </article>
+</section>
